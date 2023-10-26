@@ -1,0 +1,54 @@
+<CompuCell3D>
+    <Potts>
+        <Dimensions x="100" y="100" z="1" />
+        <Steps>100</Steps>
+        <Temperature>20</Temperature>
+        <DebugOutputFrequency>1000</DebugOutputFrequency>
+        <Flip2DimRatio>1</Flip2DimRatio>
+    </Potts>
+
+    <Plugin Name="CellType">
+        <CellType TypeName="Medium" TypeId="0" />
+        <CellType TypeName="CellA" TypeId="1" />
+        <CellType TypeName="CellB" TypeId="2" />
+
+    </Plugin>
+    <Plugin Name="Volume">
+        <TargetVolume>100</TargetVolume>
+        <LambdaVolume>1.0</LambdaVolume>
+    </Plugin>
+    <Plugin Name="Surface">
+        <TargetSurface>10</TargetSurface>
+        <LambdaSurface>0.5</LambdaSurface>
+    </Plugin>
+    <Plugin Name="Contact">
+        <Energy Type1="Medium" Type2="Medium">1</Energy>
+        <Energy Type1="CellA" Type2="CellA">1</Energy>
+        <Energy Type1="CellB" Type2="CellB">1</Energy>
+        <Energy Type1="CellA" Type2="CellB">10</Energy>
+        <Energy Type1="CellA" Type2="Medium">50</Energy>
+        <Energy Type1="CellB" Type2="Medium">5</Energy>
+    </Plugin>
+    <Plugin Name="ExternalPotential" />
+    <Plugin Name="CenterOfMass" />
+
+    <Steppable Type="BlobInitializer">
+        <Region>
+            <Gap>0</Gap>
+            <Width>10</Width>
+            <Radius>20</Radius>
+            <Center x="50" y="50" z="0" />
+            <Types>CellA</Types>
+        </Region>
+    </Steppable>
+
+    <!-- <Steppable Type="UniformInitializer">
+        <Region>
+            <BoxMin x="240" y="240" z="0" />
+            <BoxMax x="260" y="260" z="1" />
+            <Gap>0</Gap>
+            <Width>50</Width>
+            <Types>CellA</Types>
+        </Region>
+    </Steppable> -->
+</CompuCell3D>

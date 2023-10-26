@@ -1,0 +1,6 @@
+<Simulation version="4.2.0">
+    <XMLScript Type="XMLScript">Simulation/RandomWalkingCell.xml</XMLScript>
+    <PythonScript Type="PythonScript">Simulation/RandomWalkingCell.py</PythonScript>
+    <Resource Type="Python">Simulation/RandomWalkingCellSteppables.py</Resource>
+</Simulation>
+ 
